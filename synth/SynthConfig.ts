@@ -61,7 +61,7 @@ export const enum EnvelopeType {
     rise,
     blip,
     fall, //slarmoo's box 1.2
-    //add new envelope types here
+    //no need to add more
 }
 
 export const enum InstrumentType {
@@ -152,7 +152,7 @@ export const enum BaseWaveTypes {
     trapezoid,
     steppedSaw,
     steppedTri,
-    // ramp,
+    ramp,
     length,
 }
 
@@ -290,10 +290,10 @@ export interface Envelope extends BeepBoxOption {
 export interface AutomationTarget extends BeepBoxOption {
     readonly computeIndex: EnvelopeComputeIndex /*| InstrumentAutomationIndex*/ | null;
     readonly displayName: string;
-    //readonly perNote: boolean; // Whether to compute envelopes on a per-note basis.
+    readonly perNote: boolean; // Whether to compute envelopes on a per-note basis.
     readonly interleave: boolean; // Whether to interleave this target with the next one in the menu (e.g. filter frequency and gain).
 	readonly isFilter: boolean; // Filters are special because the maxCount depends on other instrument settings.
-	//readonly range: number | null; // set if automation is allowed.
+	readonly range: number | null; // set if automation is allowed.
     readonly maxCount: number;
     readonly effect: EffectType | null;
     readonly compatibleInstruments: InstrumentType[] | null;
@@ -579,40 +579,6 @@ export function loadBuiltInSamples(set: number): void {
 	    { name: "paandorasbox peppersteak_1", expression: 2.0, isSampled: true, isPercussion: false, extraSampleDetune: -42.2 },
 	    { name: "paandorasbox peppersteak_2", expression: 2.0, isSampled: true, isPercussion: false, extraSampleDetune: -47 },
 	    { name: "paandorasbox vinyl_noise", expression: 2.0, isSampled: true, isPercussion: true, extraSampleDetune: -50 },
-	    { name: "paandorasbeta slap bass", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -56 },
-	    { name: "paandorasbeta HD EB overdrive guitar", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -60 },
-	    { name: "paandorasbeta sunsoft bass", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -18.5 },
-	    { name: "paandorasbeta masculine choir", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -50 },
-	    { name: "paandorasbeta feminine choir", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -60.5 },
-	    { name: "paandorasbeta tololoche", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -29.5 },
-	    { name: "paandorasbeta harp", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -54 },
-	    { name: "paandorasbeta pan flute", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -58 },
-	    { name: "paandorasbeta krumhorn", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -46 },
-	    { name: "paandorasbeta timpani", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -50 },
-	    { name: "paandorasbeta crowd hey", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -29 },
-	    { name: "paandorasbeta wario land 4 brass", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -68 },
-	    { name: "paandorasbeta wario land 4 rock organ", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -63 },
-	    { name: "paandorasbeta wario land 4 DAOW", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -35 },
-	    { name: "paandorasbeta wario land 4 hour chime", expression: 1.0, isSampled: true, isPercussion: false, extraSampleDetune: -47.5 },
-	    { name: "paandorasbeta wario land 4 tick", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -12.5 },
-	    { name: "paandorasbeta kirby kick", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -46.5 },
-	    { name: "paandorasbeta kirby snare", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -46.5 },
-	    { name: "paandorasbeta kirby bongo", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -46.5 },
-	    { name: "paandorasbeta kirby click", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -46.5 },
-	    { name: "paandorasbeta sonor kick", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -28.5 },
-	    { name: "paandorasbeta sonor snare", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -28.5 },
-	    { name: "paandorasbeta sonor snare (left hand)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -22.5 },
-	    { name: "paandorasbeta sonor snare (right hand)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -22.5 },
-	    { name: "paandorasbeta sonor high tom", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -41.5 },
-	    { name: "paandorasbeta sonor low tom", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -41.5 },
-	    { name: "paandorasbeta sonor hihat (closed)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -17 },
-	    { name: "paandorasbeta sonor hihat (half opened)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -21 },
-	    { name: "paandorasbeta sonor hihat (open)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -54.5 },
-	    { name: "paandorasbeta sonor hihat (open tip)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -43.5 },
-	    { name: "paandorasbeta sonor hihat (pedal)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -28 },
-	    { name: "paandorasbeta sonor crash", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -51 },
-	    { name: "paandorasbeta sonor crash (tip)", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -50.5 },
-	    { name: "paandorasbeta sonor ride", expression: 1.0, isSampled: true, isPercussion: true, extraSampleDetune: -46 }
 	];
 
 	sampleLoadingState.totalSamples += chipWaves.length;
@@ -899,7 +865,7 @@ export class Config {
         { name: "Whole Tone", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] }, // Whole Tone
         { name: "Octatonic", realName: "octatonic", flags: [true, false, true, true, false, true, true, false, true, true, false, true] }, // Octatonic
         { name: "Hexatonic", realName: "hexatonic", flags: [true, false, false, true, true, false, false, true, true, false, false, true] }, // Hexatonic
-        // TODO: remove these with 2.3
+        // TODO: UNremove these with 2.3
         // modbox
         { name: "No Dabbing (MB)", realName: "no dabbing", flags:[true, true, false, true, true, true, true, true, true, false, true, false] },
         // todbox
@@ -920,20 +886,16 @@ export class Config {
         { name: "A", isWhiteKey: true, basePitch: 21 },
         { name: "A♯", isWhiteKey: false, basePitch: 22 },
         { name: "B", isWhiteKey: true, basePitch: 23 },
-        // { name: "C+", isWhiteKey: false, basePitch: 24 },
-        //taken from todbox, called "B#" for some reason lol
-        // { name: "G- (actually F#-)", isWhiteKey: false, basePitch: 6 },
-        // { name: "C-", isWhiteKey: true, basePitch: 0 },
-        //brucebox
-        //g- isn't actually g-???
-        // { name: "oh no (F-)", isWhiteKey: true, basePitch: 5 },
-        //shitbox
+        { name: "C+", isWhiteKey: false, basePitch: 24 },
+        { name: "G- (actually F#-)", isWhiteKey: false, basePitch: 6 },
+        { name: "C-", isWhiteKey: true, basePitch: 0 },
+        { name: "oh no (F-)", isWhiteKey: true, basePitch: 5 },
     ]);
     public static readonly blackKeyNameParents: ReadonlyArray<number> = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     public static readonly tempoMin: number = 1;
-    public static readonly tempoMax: number = 500;
-    public static readonly octaveMin: number = -2;
-    public static readonly octaveMax: number = 2;
+    public static readonly tempoMax: number = 1000;
+    public static readonly octaveMin: number = -5;
+    public static readonly octaveMax: number = 5;
     public static readonly echoDelayRange: number = 24;
     public static readonly echoDelayStepTicks: number = 4;
     public static readonly echoSustainRange: number = 8;
@@ -945,9 +907,9 @@ export class Config {
     public static readonly reverbDelayBufferSize: number = 16384; // TODO: Compute a buffer size based on sample rate.
     public static readonly reverbDelayBufferMask: number = Config.reverbDelayBufferSize - 1; // TODO: Compute a buffer size based on sample rate.
     public static readonly beatsPerBarMin: number = 1;
-    public static readonly beatsPerBarMax: number = 64;
+    public static readonly beatsPerBarMax: number = 256;
     public static readonly barCountMin: number = 1;
-    public static readonly barCountMax: number = 1024;
+    public static readonly barCountMax: number = 2048;
     public static readonly instrumentCountMin: number = 1;
     public static readonly layeredInstrumentCountMax: number = 10;
     public static readonly patternInstrumentCountMax: number = 10;
@@ -960,7 +922,7 @@ export class Config {
 		{ name: "÷4 (standard)", stepsPerBeat: 4, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: [/*0*/ 3, /*6*/ 9, /*12*/ 17, /*18*/ 21 /*24*/] },
 		{ name: "÷6", stepsPerBeat: 6, /*ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: null },
 		{ name: "÷8", stepsPerBeat: 8, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: null },
-        { name: "÷12", stepsPerBeat: 12, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]]*/ roundUpThresholds: null },
+                { name: "÷12", stepsPerBeat: 12, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]]*/ roundUpThresholds: null },
 		{ name: "freehand", stepsPerBeat: 24, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: null },
 	]);
 
@@ -1138,16 +1100,16 @@ export class Config {
         { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 37 }, // It will fade in over the previous two ticks.
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
-        //    { name: "very shaky", amplitude: 1, type: 0, delayTicks: 0 },
-        //{ name: "insane", amplitude: 10, type: 1, delayTicks: 0 },
+        { name: "very shaky", amplitude: 1, type: 0, delayTicks: 0 },
+        { name: "insane", amplitude: 10, type: 1, delayTicks: 0 },
         //todbox vibratos
-        //	{ name: "super insane", amplitude: 30, type: 1, delayTicks: 1 },
+        { name: "super insane", amplitude: 30, type: 1, delayTicks: 1 },
         //wackybox
-        //	 { name: "quiver", amplitude: 0.001, type: 0, delayTicks: 0 },
-        //  { name: "wub-wub", amplitude: 10.0, type: 0, delayTicks: 0 },
-        //     { name: "quiver delayed", amplitude: 0.001, type: 0, delayTicks: 18 },
-        //  { name: "vibrate", amplitude: 0.08, type: 0, delayTicks: 0 },
-        //    { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 18 },
+        { name: "quiver", amplitude: 0.001, type: 0, delayTicks: 0 },
+        { name: "wub-wub", amplitude: 10.0, type: 0, delayTicks: 0 },
+        { name: "quiver delayed", amplitude: 0.001, type: 0, delayTicks: 18 },
+        { name: "vibrate", amplitude: 0.08, type: 0, delayTicks: 0 },
+        { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 18 },
         //too much wub breaks things just a little bit at it's original amplitude
         //sandbox
     ]);
@@ -1175,6 +1137,7 @@ export class Config {
         { name: "rising", voices: 2, spread: 1.0, offset: 0.7, expression: 0.95, sign: 1.0 },
         { name: "vibrate", voices: 2, spread: 3.5, offset: 7, expression: 0.975, sign: 1.0 },
         { name: "fourths", voices: 2, spread: 4, offset: 4, expression: 0.95, sign: 1.0 },
+	{ name: "thirds", voices: 2, spread: 3, offset: 3, expression: 0.90, sign: 1.0 },
         { name: "bass", voices: 1, spread: 0, offset: -7, expression: 1.0, sign: 1.0 },
         { name: "dirty", voices: 2, spread: 0, offset: 0.1, expression: 0.975, sign: 1.0 },
         { name: "stationary", voices: 2, spread: 3.5, offset: 0.0, expression: 0.9, sign: 1.0 },
@@ -1277,7 +1240,8 @@ export class Config {
     public static readonly operatorCarrierInterval: ReadonlyArray<number> = [0.0, 0.04, -0.073, 0.091, 0.061, 0.024];
     public static readonly operatorAmplitudeMax: number = 15;
     public static readonly operatorFrequencies: DictionaryArray<OperatorFrequency> = toNameMap([
-        { name: "0.12×", mult: 0.125, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "0.0625×", mult: 0.0625, hzOffset: 0.0, amplitudeSign: 1.0 },
+	{ name: "0.125×", mult: 0.125, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.75×", mult: 0.75, hzOffset: 0.0, amplitudeSign: 1.0 },
@@ -1318,6 +1282,9 @@ export class Config {
         //128 and 256 from slarmoo's box
         { name: "128x", mult: 128.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "256x", mult: 250.0, hzOffset: 0.0, amplitudeSign: 1.0},
+       //Extra 512 and 1024 from quectobox
+	{ name: "512x", mult: 512.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+	{ name: "1024x", mult: 1024.0, hzOffset: 0.0, amplitudeSign: 1.0 },
     ]);
 
     //still used for drumsets
@@ -1349,7 +1316,7 @@ export class Config {
         { name: "decay 1", type: EnvelopeType.decay, speed: 10.0 },
         { name: "decay 2", type: EnvelopeType.decay, speed: 7.0 },
         { name: "decay 3", type: EnvelopeType.decay, speed: 4.0 },
-        { name: "wibble-1", type: EnvelopeType.wibble, speed: 128.0 }, //Changed speed from 96 to 128. I forgot to include a 96 earlier, and now it's too late to add one, so we have this now. Hopefully no one notices
+        { name: "wibble-1", type: EnvelopeType.wibble, speed: 130.0 }, //Changed speed from 128 to 130, and now it's too late to add one, so we have this now. Hopefully no one notices
         { name: "wibble 1", type: EnvelopeType.wibble, speed: 24.0 },
         { name: "wibble 2", type: EnvelopeType.wibble, speed: 12.0 },
         { name: "wibble 3", type: EnvelopeType.wibble, speed: 4.0 },
@@ -1392,6 +1359,11 @@ export class Config {
         { name: "fall 1", type: EnvelopeType.fall, speed: 8.0 },
         { name: "fall 2", type: EnvelopeType.fall, speed: 4.0 },
         { name: "fall 3", type: EnvelopeType.fall, speed: 2.0 },
+	// Quectobox Extras
+        { name: "fall 4", type: EnvelopeType.fall, speed: 1.5 },
+        { name: "fall 5", type: EnvelopeType.fall, speed: 1.0 },
+	{ name: "fall 6", type: EnvelopeType.fall, speed: 0.5 },
+
     ]);
 
     public static readonly newEnvelopes: DictionaryArray<Envelope> = toNameMap([
@@ -1403,8 +1375,8 @@ export class Config {
         { name: "flare", type: EnvelopeType.flare, speed: 32.0 },
         { name: "twang", type: EnvelopeType.twang, speed: 32.0 },
         { name: "swell", type: EnvelopeType.swell, speed: 32.0 },
-        { name: "lfo", type: EnvelopeType.lfo, speed: 4.0 }, //replaced tremolo and tremolo2
-        // { name: "tremolo2", type: EnvelopeType.tremolo2, speed: 4.0 }, //removed Slarmoo's Box 1.3
+        { name: "lfo", type: EnvelopeType.lfo, speed: 4.0 }, //current lfo
+        { name: "tremolo2", type: EnvelopeType.tremolo2, speed: 4.0 }, //removed Slarmoo's Box 1.3, Got back from Quectobox 1.0
         { name: "decay", type: EnvelopeType.decay, speed: 10.0 },
         { name: "wibble", type: EnvelopeType.wibble, speed: 24.0 },
         { name: "linear", type: EnvelopeType.linear, speed: 32.0 },
@@ -1672,9 +1644,9 @@ export class Config {
 		{ name: "sawtooth", samples: generateSawWave() },
 		{ name: "ramp", samples: generateSawWave(true) },
 		{ name: "trapezoid", samples: generateTrapezoidWave(2) },
-	    { name: "quasi-sine", samples: generateQuasiSineWave() },
-		//{ name: "white noise", samples: generateWhiteNoiseFmWave() },
-		//{ name: "1-bit white noise", samples: generateOneBitWhiteNoiseFmWave() },
+	        { name: "quasi-sine", samples: generateQuasiSineWave() },
+		{ name: "white noise", samples: generateWhiteNoiseFmWave() },
+		{ name: "1-bit white noise", samples: generateOneBitWhiteNoiseFmWave() },
     ]);
     public static readonly pwmOperatorWaves: DictionaryArray<OperatorWave> = toNameMap([
         { name: "1%", samples: generateSquareWave(0.01) },
@@ -2100,20 +2072,20 @@ function generateSawWave(inverse: boolean = false): Float32Array {
     return wave;
 }
 
-	// function generateWhiteNoiseFmWave() {
-        // const wave = new Float32Array(Config.sineWaveLength + 1);
-        // for (let i = 0; i < Config.sineWaveLength + 1; i++) {
-            // wave[i] = Math.random() * 2.0 - 1.0;
-        // }
-        // return wave;
-    // }
-	// function generateOneBitWhiteNoiseFmWave() {
-        // const wave = new Float32Array(Config.sineWaveLength + 1);
-        // for (let i = 0; i < Config.sineWaveLength + 1; i++) {
-            // wave[i] = Math.round(Math.random());
-        // }
-        // return wave;
-    // }
+	function generateWhiteNoiseFmWave() {
+        const wave = new Float32Array(Config.sineWaveLength + 1);
+        for (let i = 0; i < Config.sineWaveLength + 1; i++) {
+            wave[i] = Math.random() * 2.0 - 1.0;
+         }
+         return wave;
+     }
+	 function generateOneBitWhiteNoiseFmWave() {
+         const wave = new Float32Array(Config.sineWaveLength + 1);
+         for (let i = 0; i < Config.sineWaveLength + 1; i++) {
+             wave[i] = Math.round(Math.random());
+         }
+         return wave;
+     }
 	function generateQuasiSineWave() {
         const wave = new Float32Array(Config.sineWaveLength + 1);
         for (let i = 0; i < Config.sineWaveLength + 1; i++) {
