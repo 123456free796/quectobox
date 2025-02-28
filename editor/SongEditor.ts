@@ -5251,8 +5251,8 @@ export class SongEditor {
                 let shortenerStrategy: string = "https://tinyurl.com/api-create.php?url=";
                 const localShortenerStrategy: string | null = window.localStorage.getItem("shortenerStrategySelect");
 
-                // if (localShortenerStrategy == "beepboxnet") shortenerStrategy = "https://www.beepbox.net/api-create.php?url=";
-                if (localShortenerStrategy == "isgd") shortenerStrategy = "https://is.gd/create.php?format=simple&url=";
+                if (localShortenerStrategy == "dub.co") shortenerStrategy = "https://www.beepbox.net/api-create.php?url=";
+                if (localShortenerStrategy == "bitly.com") shortenerStrategy = "https://is.gd/create.php?format=simple&url=";
 
                 window.open(shortenerStrategy + encodeURIComponent(new URL("#" + this._doc.song.toBase64String(), location.href).href));
                 break;
