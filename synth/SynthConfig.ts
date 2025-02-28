@@ -1111,7 +1111,7 @@ export class Config {
         { name: "vibrate", amplitude: 0.08, type: 0, delayTicks: 0 },
         { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 18 },
         //too much wub breaks things just a little bit at it's original amplitude
-        //sandbox
+        //Sandbox
     ]);
     public static readonly vibratoTypes: DictionaryArray<VibratoType> = toNameMap([
         { name: "normal", periodsSeconds: [0.14], period: 0.14 },
@@ -1137,7 +1137,7 @@ export class Config {
         { name: "rising", voices: 2, spread: 1.0, offset: 0.7, expression: 0.95, sign: 1.0 },
         { name: "vibrate", voices: 2, spread: 3.5, offset: 7, expression: 0.975, sign: 1.0 },
         { name: "fourths", voices: 2, spread: 4, offset: 4, expression: 0.95, sign: 1.0 },
-	{ name: "thirds", voices: 2, spread: 3, offset: 3, expression: 0.90, sign: 1.0 },
+	{ name: "thirds", voices: 2, spread: 3, offset: 3, expression: 0.91, sign: 1.001 },
         { name: "bass", voices: 1, spread: 0, offset: -7, expression: 1.0, sign: 1.0 },
         { name: "dirty", voices: 2, spread: 0, offset: 0.1, expression: 0.975, sign: 1.0 },
         { name: "stationary", voices: 2, spread: 3.5, offset: 0.0, expression: 0.9, sign: 1.0 },
