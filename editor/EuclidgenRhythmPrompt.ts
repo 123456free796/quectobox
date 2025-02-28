@@ -139,9 +139,9 @@ function generateEuclideanRhythm(steps: number, pulses: number, offset: number):
 
 export class EuclideanRhythmPrompt implements Prompt {
     private readonly _minSteps: number = 2;
-    private readonly _maxSteps: number = 64;
+    private readonly _maxSteps: number = 84;
 
-    private readonly _maxSequences: number = 14;
+    private readonly _maxSequences: number = 34;
 
     private _maxChannel: number = Config.pitchChannelCountMax + Config.noiseChannelCountMax - 1; // Inclusive.
 
