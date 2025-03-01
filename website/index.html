@@ -430,13 +430,21 @@
             const heartPlants = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
             if ((date.getDate() >= 13 && date.getDate() <= 15) && date.getMonth() == 1) {
                 document.getElementById("goldboxPlant").innerHTML = "  " + heartPlants[(Math.floor(Math.random() * heartPlants.length))];
+		                //Quectobox April Fool's Day Plants
+            const FoolsPlants = ["ox", " box", " boxbox", " LOUD"];
+            if ((date.getDate() >= 1 && date.getDate() <= 2) && date.getMonth() == 3) {
+                document.getElementById("goldboxPlant").innerHTML = "  " + heartPlants[(Math.floor(Math.random() * FoolsPlants.length))];
+		                //Quectobox Pi Day Plants
+            const heartPlants = [" Pie!", " Pi!"];
+            if ((date.getDate() >= 13 && date.getDate() <= 15) && date.getMonth() == 2) {
+                document.getElementById("goldboxPlant").innerHTML = "  " + heartPlants[(Math.floor(Math.random() * heartPlants.length))];
             }
         }
         if ((date.getDate() == 1) && date.getMonth() == 3) {
             document.getElementById("goldboxPlant").innerHTML = "  Censorship Update";
         }
-        if ((date.getDate() == 13) && date.getMonth() == 4) {
-            const years = date.getFullYear() - 2024;
+        if ((date.getDate() == 28) && date.getMonth() == 2) {
+            const years = date.getFullYear() - 2025;
             const birthdayPlants = [years + " year" + (years != 1 ? "s" : "") + "!", "🎂", "🎉", "Happy Birthday!", "Anniversary"];
             document.getElementById("goldboxPlant").innerHTML = "  " + birthdayPlants[(Math.floor(Math.random() * birthdayPlants.length))];
         }
