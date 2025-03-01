@@ -5503,8 +5503,8 @@ export class ColorConfig {
 		}`,
 		"azur lane":`
 		:root {
-			--page-margin: #19337e;
-			--editor-background: #000333cf;
+			--page-margin: #66a832;
+			--editor-background: #32a852;
 			--playhead: rgba(255, 255, 255, 0.9);
 			--primary-text: #9af9ff;
 			--secondary-text: #4072dd;
