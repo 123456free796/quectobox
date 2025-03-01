@@ -68,7 +68,7 @@ export class ThemePrompt implements Prompt {
 			option({ value: "ultrabox dark" }, "UltraBox"),
 		),
 		optgroup({ label: "Misc" },
-			option({ value: "azur lane" }, "Azur Lane"),
+			option({ value: "azur lane" }, "Bardel-arly"),
 			option({ value: "custom" }, "Custom")
 		),
 	);
