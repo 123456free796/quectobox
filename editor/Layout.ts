@@ -272,6 +272,88 @@ export class Layout {
 				}
 			}
 		`,
+	            "wider": `\
+			/* wider (QB) layout */
+			@media (min-width: 1001px) {
+				#beepboxEditorContainer {
+					max-width: initial;
+					height: 100vh;
+					padding-top: 0px;
+				}
+				.beepboxEditor {
+					width: 100%;
+					height: 100vh;
+					grid-template-columns: 669px minmax(0, 1fr) 36em;
+					grid-template-rows: minmax(499px, 1fr) min-content;
+					grid-template-areas: "track-area pattern-area settings-area";
+				}
+				.beepboxEditor .pattern-area {
+					width: 100%;
+					height: 100%;
+				}
+				.beepboxEditor .track-area {
+					width: 100%;
+					height: 100%;
+					max-height: 100%
+				}
+				.beepboxEditor .editor-widget-column {
+					flex: 0;
+				}
+				.beepboxEditor .trackAndMuteContainer {
+					width: 100%;
+					flex: 0;
+					flex-basis: initial;
+					flex-grow: 0;
+					overflow-y: auto;
+					max-height: 98.5vh;
+				}
+				.beepboxEditor .instrument-settings-area {
+					overflow-y: auto;
+					position: relative;
+				}
+				.beepboxEditor .instrument-settings-area > .editor-controls {
+					position: absolute;
+					width: 100%;
+				}
+				
+				.beepboxEditor .song-settings-area {
+					overflow-y: auto;
+				}
+				
+				.beepboxEditor .settings-area {
+					width: 31em;
+					grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+					grid-template-rows: auto auto auto minmax(0, 1fr);
+					grid-template-areas:
+						"instrument-settings-area version-area"
+						"instrument-settings-area play-pause-area"
+						"instrument-settings-area menu-area"
+						"instrument-settings-area song-settings-area";
+				}
+				.beepboxEditor .version-area {
+					position: sticky;
+					top: 0;
+					z-index: 1;
+					background: ${ColorConfig.editorBackground};
+				}
+				.beepboxEditor .play-pause-area {
+					position: sticky;
+					top: 29px;
+					z-index: 1;
+					background: ${ColorConfig.editorBackground};
+				}
+				.beepboxEditor .menu-area {
+					position: sticky;
+					top: 90px;
+					z-index: 1;
+					background: ${ColorConfig.editorBackground};
+				}
+				
+				.beepboxEditor .trackContainer {
+					overflow: visible;
+				}
+			}
+		`,
         "flipped long": `\
 
             	/* AB Special layout */
@@ -443,6 +525,8 @@ export class Layout {
 				}
 			}
 		`,
+	 
+
         "focused long": `\
 
 			/* focused long layout */
